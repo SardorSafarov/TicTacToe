@@ -15,10 +15,19 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="MyCustomerBtn" parent="ThemeOverlay.Material3">
-        <item name="android:textSize">@dimen/txt_28sp</item>
+        <item name="android:textSize">@dimen/txt_36sp</item>
         <item name="android:background">@drawable/bg_button</item>
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">@font/tic</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="DialogCustomer" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="dialogCornerRadius">@dimen/radius_10dp</item>
+    </style>
+
+
+
+
+
+    <dimen name="txt_36sp">36sp</dimen>
 </resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingVertical="@dimen/magin_padding_24dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/text_dialog"
+            android:textColor="@color/txt_color"
+            android:text="X Win"
+            android:fontFamily="@font/tic"
+            android:textStyle="bold"
+            android:textSize="@dimen/txt_36sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_dialog"
+        android:layout_width="200dp"
+        android:layout_marginTop="@dimen/margin_padding_16dp"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        android:paddingHorizontal="@dimen/magin_padding_24dp"
+        android:textColor="@color/white"
+        style="@style/MyCustomerBtn"
+        />
+</androidx.appcompat.widget.LinearLayoutCompat>
