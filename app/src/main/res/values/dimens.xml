@@ -5,4 +5,9 @@
     <dimen name="margin_padding_50dp">50dp</dimen>
     <dimen name="txt_24sp">24sp</dimen>
     <dimen name="magin_padding_24dp">24dp</dimen>
+    <dimen name="txt_30sp">30sp</dimen>
+    <dimen name="margin_padding_16dp">16dp</dimen>
+    <dimen name="txt_28sp">28sp</dimen>
+    <dimen name="txt_26sp">26sp</dimen>
+    <dimen name="margin_padding_20dp">20dp</dimen>
 </resources>
