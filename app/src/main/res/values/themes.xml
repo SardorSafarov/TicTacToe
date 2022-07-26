@@ -20,6 +20,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">@font/tic</item>
         <item name="android:textStyle">bold</item>
+
     </style>
     <style name="DialogCustomer" parent="ThemeOverlay.Material3.Dialog.Alert">
         <item name="dialogCornerRadius">@dimen/radius_10dp</item>

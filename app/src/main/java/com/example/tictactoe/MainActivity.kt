@@ -7,17 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
-import android.widget.Toast
+
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.tictactoe.databinding.ActivityMainBinding
 import com.example.tictactoe.databinding.DialogBinding
-import com.example.tictactoe.log.D
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var isXTurn = true
-    var stop = 1
     val array = Array(3) { CharArray(3) { '*' } }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -63,11 +62,8 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setX(btn: Button, n: Int) {
-        if (stop == 9) {
-            showWinDiaolg("Durrang!!")
-        }
-        stop++
         if (btn.text.isNotEmpty()) return
+
         btn.text = if (isXTurn) {
             btn.setTextColor(getColor(R.color.x_color))
             array[(n - 1) / 3][(n - 1) % 3] = 'X'
@@ -81,18 +77,23 @@ class MainActivity : AppCompatActivity() {
             if (isXTurn) getString(R.string.o_navbati) else getString(R.string.x_navbati)
         isXTurn = !isXTurn
         checkWin()
+
+
+
     }
 
     private fun checkWin() {
         if (array[0][0] != '*' && array[0][0] == array[1][1] && array[1][1] == array[2][2]) {
             showWinDiaolg(array[1][1].toString())
+            return
         }
 
         if (array[0][2] != '*' && array[0][2] == array[1][1] && array[1][1] == array[2][0]) {
             showWinDiaolg(array[1][1].toString())
+            return
         }
 
-        array.forEach { char ->
+        for(char in array){
             if (char[0] != '*' && char[0] == char[1] && char[1] == char[2]) {
                 showWinDiaolg(char[0].toString())
                 return
@@ -104,12 +105,19 @@ class MainActivity : AppCompatActivity() {
                 return
             }
         }
+        var stop = 0
+        for (i in 0 until 3)
+            for (j in 0 until  3){
+                if (array[i][j]!='*')
+                    stop++
+            }
+        if (stop==9)
+            showWinDiaolg("Durrang!!")
 
     }
 
     private fun showWinDiaolg(c: String) {
         val dialogBinding = DialogBinding.inflate(LayoutInflater.from(this))
-
         when (c) {
             "Durrang!!" -> {
                 dialogBinding.textDialog.setText("Durrang bo`ldi!!")
@@ -141,7 +149,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearBtn() {
-        stop = 1
+
         binding.apply {
             btn1.text = ""
             btn2.text = ""
@@ -153,7 +161,8 @@ class MainActivity : AppCompatActivity() {
             btn8.text = ""
             btn9.text = ""
         }
-        for (i in 0 until 3) {
+
+         for (i in 0 until 3) {
             for (j in 0 until 3) {
                 array[i][j] = '*'
             }
