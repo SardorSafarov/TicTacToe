@@ -19,5 +19,6 @@
         <item name="android:background">@drawable/bg_button</item>
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">@font/tic</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
