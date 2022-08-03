@@ -1,13 +1,12 @@
 package com.example.tictactoe
 
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
-
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.tictactoe.databinding.ActivityMainBinding
@@ -23,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         setContentView(binding.root)
         setBtnClicListener()
     }
@@ -79,7 +80,6 @@ class MainActivity : AppCompatActivity() {
         checkWin()
 
 
-
     }
 
     private fun checkWin() {
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        for(char in array){
+        for (char in array) {
             if (char[0] != '*' && char[0] == char[1] && char[1] == char[2]) {
                 showWinDiaolg(char[0].toString())
                 return
@@ -107,11 +107,11 @@ class MainActivity : AppCompatActivity() {
         }
         var stop = 0
         for (i in 0 until 3)
-            for (j in 0 until  3){
-                if (array[i][j]!='*')
+            for (j in 0 until 3) {
+                if (array[i][j] != '*')
                     stop++
             }
-        if (stop==9)
+        if (stop == 9)
             showWinDiaolg("Durrang!!")
 
     }
@@ -126,11 +126,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             "X" -> {
-                    dialogBinding.textDialog.setText("X Yutdi!!")
-                    binding.winX.text = (binding.winX.text.toString().toInt() + 1).toString()
+                dialogBinding.textDialog.setText("X Yutdi!!")
+                binding.winX.text = (binding.winX.text.toString().toInt() + 1).toString()
 
             }
-            "0"->{
+            "0" -> {
                 dialogBinding.textDialog.setText("0 Yutdi!!")
                 binding.win0.text = (binding.win0.text.toString().toInt() + 1).toString()
             }
@@ -162,7 +162,7 @@ class MainActivity : AppCompatActivity() {
             btn9.text = ""
         }
 
-         for (i in 0 until 3) {
+        for (i in 0 until 3) {
             for (j in 0 until 3) {
                 array[i][j] = '*'
             }
