@@ -24,7 +24,7 @@ class SplashScreenActivity : AppCompatActivity() {
         anim = AnimationUtils.loadAnimation(this, R.anim.ainm)
         anim.duration = 1000
         binding.text.animation = anim
-        object : CountDownTimer(1500, 1000) {
+        object : CountDownTimer(2700, 2200) {
             override fun onTick(p0: Long) {
 
             }
